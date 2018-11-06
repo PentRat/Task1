@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Task1.TaxPark.Cars
 {
     [DataContract]
-    public class CarModel
+    public  class CarModel
     {
         [DataMember]
         public string Name { get; private set; }

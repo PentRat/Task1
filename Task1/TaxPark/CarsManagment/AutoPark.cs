@@ -11,29 +11,36 @@ namespace Task1.TaxPark.CarsManagment
     public class AutoPark
     {
         [DataMember]
-        public IList<TaxiCar> TaxiCars { get; set; }
+        public IList<Taxi> TaxiCars { get; set; }
 
         public AutoPark()
         {
-            TaxiCars = new List<TaxiCar>();
+            TaxiCars = new List<Taxi>();
+            
         }
 
         public decimal CalculateAutoparkPrice()
         {
             decimal cost = 0;
             foreach (var car in TaxiCars)
-                {
+            {
                 cost += car.CarModel.Price;
-                }
+            }
             return cost;
         }
-        
-        public IEnumerable<TaxiCar> SortByFuelConsumption()
+
+        void AddTaxi(int index, string licensePlateNumber)
+        {
+            Taxi taxi = CarShop.GetTaxiCar(index, licensePlateNumber);
+            TaxiCars.Add(taxi);
+        }
+
+        public IEnumerable<Taxi> SortByFuelConsumption()
             => from car in TaxiCars
                orderby car.CarModel.FuelConsumption
                select car;
 
-        public IEnumerable<TaxiCar> SearchBySpeedInterval(double minSpeed, double maxSpeed)
+        public IEnumerable<Taxi> SearchBySpeedInterval(double minSpeed, double maxSpeed)
             => from car in TaxiCars
                where car.CarModel.MaxSpeed > minSpeed && car.CarModel.MaxSpeed < maxSpeed
                select car;
