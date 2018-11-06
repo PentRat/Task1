@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Task1.TaxPark.CarsManagment;
 using Task1.TaxPark.DataManagment;
 
 namespace Task1.TaxPark
 {
-    public class TaxiPark
+    public class TaxPark
     {
         public string Name { get; private set; }
 
@@ -14,22 +18,14 @@ namespace Task1.TaxPark
 
         private FileBrowser FileBrowser { get; set; }
         
-        public TaxiPark(string name)
+        public TaxPark(string name)
         {
             Name = name;
             FileBrowser = new FileBrowser();
-            Autopark = FileBrowser.LoadAutopark(name);
-            CarShop = FileBrowser.LoadCarShop(name);
+            Autopark = new AutoPark();
+            CarShop = new CarShop();
         }
 
-        public void SaveCarshop()
-        {
-            FileBrowser.SaveCarshop(CarShop, Name);
-        }
-        public void SaveAutopark()
-        {
-            FileBrowser.SaveCarshop(Autopark, Name);
-        }
-        
+        //save
     }
 }

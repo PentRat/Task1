@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Task1.TaxPark.Cars;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 
 namespace Task1.TaxPark.CarsManagment
 {
-    [DataContract]
+    [Serializable]
     public class AutoPark
     {
-        [DataMember]
         public IList<TaxiCar> TaxiCars { get; set; }
 
         public AutoPark()

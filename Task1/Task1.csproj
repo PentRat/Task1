@@ -69,7 +69,7 @@
     <Compile Include="TaxPark\Cars\TaxiCar.cs" />
     <Compile Include="TaxPark\CarsManagment\AutoPark.cs" />
     <Compile Include="TaxPark\DataManagment\FileBrowser.cs" />
-    <Compile Include="TaxPark\TaxiPark.cs" />
+    <Compile Include="TaxPark\TaxPark.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
